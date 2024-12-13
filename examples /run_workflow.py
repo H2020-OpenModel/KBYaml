@@ -7,7 +7,7 @@ from aiida import engine, load_profile, orm
 
 from execflow.workchains.declarative_chain import DeclarativeChain
 
-from kbyaml import get_yaml
+from kbyaml.kbyaml import get_yaml
 
 get_yaml(output="data02.yaml")
 
