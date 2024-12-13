@@ -1,0 +1,24 @@
+---
+data:
+ "$ref": "file:///home/jovyan/work/KBYaml/examples/data02.yaml"
+steps:
+- calcjob: quantumespresso.pw
+  inputs:
+    parameters:
+      "$ref": "#/data/pw_parameters"
+    metadata:
+      "$ref": "#/data/metadata"
+    code: pw@localhost
+    kpoints:
+    - 4
+    - 4
+    - 4
+    pseudos:
+      type: core.upf
+      "$ref": "#/data/pseudos"
+    structure:
+      "$ref": "#/data/structure"
+  postprocess:
+    - "{{ ctx.current.outputs['remote_folder']|to_results('workdir') }}"
+    
+...
